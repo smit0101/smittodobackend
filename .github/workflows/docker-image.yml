@@ -1,0 +1,41 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  DOCKER_USER: '${{secrets.DOCKER_USERNAME}}'
+  DOCKER_PASSWORD: '${{secrets.DOCKER_PASSWORD}}'
+
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+         contents: 'read'
+         id-token: 'write'
+
+    steps:
+    - name: check repo
+      uses: actions/checkout@v3
+
+    - name: Docker Auth
+      id: docker-auth
+      uses: 'docker/login-action@v1'
+      with:
+        username: '${{secrets.DOCKER_USERNAME}}'
+        password: '${{secrets.DOCKER_PASSWORD}}'
+          
+    - name: Docker Login
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+
+      
+    - name: Build the Docker image
+      run: | 
+       docker build . --file Dockerfile --tag  smitmark01/smittodobackend:latest
+       docker push smitmark01/smittodobackend:latest    
