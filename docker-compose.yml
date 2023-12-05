@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - todo-app-network
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - todo-app-network
+    #volumes:
+      #- ./mongo-data:/data/db   # Mount a volume for MongoDB data
+
+networks:
+  todo-app-network:
+    driver: bridge
