@@ -39,5 +39,5 @@ jobs:
       run: | 
        docker build . --file Dockerfile --tag  smitmark01/smittodobackend:latest
        docker push smitmark01/smittodobackend:latest 
-       docker run -d smitmark01/smittodobackend:latest
-       curl http://0.0.0.0:8080/tasks
+       docker run  smitmark01/smittodobackend:latest
+       
