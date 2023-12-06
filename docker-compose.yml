@@ -11,7 +11,7 @@ services:
       - todo-app-network
 
   backend:
-    image: smitmark01/smittodobackend
+    image: smitmark01/smittodobackend:latest
     ports:
       - "8080:8080"
     depends_on:
@@ -20,7 +20,7 @@ services:
       - todo-app-network
 
   frontend:
-    image: smitmark01/frontendtodo
+    image: smitmark01/frontendtodo:latest
     ports:
       - "3000:3000"
     networks:
