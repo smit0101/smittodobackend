@@ -29,3 +29,9 @@ fun Route.deleteTask(){
         call.respond(taskCollection.find().toList())
     }
 }
+
+fun Route.testTest(){
+    get(""){
+        call.respond("Test Pass")
+    }
+}
