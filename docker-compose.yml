@@ -22,7 +22,7 @@ services:
   frontend:
     image: smitmark01/frontendtodo:latest
     ports:
-      - "3000:3000"
+      - "8501:8501"
     networks:
       - todo-app-network
 
