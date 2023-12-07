@@ -1,21 +1,10 @@
 version: '3'
 
 services:
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-    networks:
-      - todo-app-network
-
   backend:
     image: smitmark01/smittodobackend:latest
     ports:
       - "8080:8080"
-    depends_on:
-      - mongodb
     networks:
       - todo-app-network
 
@@ -30,5 +19,4 @@ networks:
   todo-app-network:
     driver: bridge
 
-volumes:
-  mongo-data:
+
