@@ -37,7 +37,7 @@ jobs:
       
     - name: Build the Docker image
       run: | 
-       docker build . --file Dockerfile --tag  smitmark01/smittodobackend:latest
-       docker push smitmark01/smittodobackend:latest 
+       docker build . --file Dockerfile --tag  smitmark01/smittodobackend:local
+       docker push smitmark01/smittodobackend:local 
        
        
