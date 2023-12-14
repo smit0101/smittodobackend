@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "local" ]
 
 env:
   DOCKER_USER: '${{secrets.DOCKER_USERNAME}}'
